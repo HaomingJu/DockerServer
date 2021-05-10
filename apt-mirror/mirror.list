@@ -1,0 +1,69 @@
+############# config ##################
+#
+set base_path    /root
+#
+set mirror_path  $base_path/mirror
+set skel_path    $base_path/skel
+set var_path     $base_path/var
+set cleanscript $var_path/clean.sh
+#set defaultarch  <running host architecture>
+set defaultarch  amd64
+set postmirror_script $var_path/postmirror.sh
+set run_postmirror 0
+set nthreads     20
+set _tilde 0
+#
+############# end config ##############
+
+deb-amd64 http://dl.google.com/linux/chrome/deb/ stable main
+
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial main restricted universe multiverse
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial main restricted universe multiverse
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial-security main restricted universe multiverse
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial-security main restricted universe multiverse
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial-updates main restricted universe multiverse
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial-updates main restricted universe multiverse
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial-backports main restricted universe multiverse
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial-backports main restricted universe multiverse
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial-proposed main restricted universe multiverse
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ubuntu xenial-proposed main restricted universe multiverse
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu xenial main
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu xenial main
+
+# Ubuntu16.04 LTS armhf & arm64
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports xenial main restricted universe multiverse
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports xenial main restricted universe multiverse
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports xenial-updates main restricted universe multiverse
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports xenial-updates main restricted universe multiverse
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports xenial-backports main restricted universe multiverse
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports xenial-backports main restricted universe multiverse
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports xenial-security main restricted universe multiverse
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports xenial-security main restricted universe multiverse
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu xenial main
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu xenial main
+
+# Ubuntu18.04 LTS
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic main restricted universe multiverse
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic main restricted universe multiverse
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic-updates main restricted universe multiverse
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic-updates main restricted universe multiverse
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic-backports main restricted universe multiverse
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic-security main restricted universe multiverse
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic-security main restricted universe multiverse
+
+deb-amd64 http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu bionic main
+deb-i386 http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu bionic main
+
+
+# Ubuntu18.04 LTS armhf & arm64
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports bionic main restricted universe multiverse
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports bionic main restricted universe multiverse
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports bionic-updates main restricted universe multiverse
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports bionic-updates main restricted universe multiverse
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports bionic-backports main restricted universe multiverse
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports bionic-backports main restricted universe multiverse
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports bionic-security main restricted universe multiverse
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports bionic-security main restricted universe multiverse
+deb-arm64 http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu bionic main
+deb-armhf http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu bionic main
