@@ -1,19 +1,17 @@
 FROM     ubuntu:18.04
 
-MAINTAINER Haoming.Ju "juhaoming@outlook.com"
-
 # 更新软件源
 RUN apt-get update
 RUN apt-get install -y apt-mirror cron nginx-light
 
+# 复制入口脚本
+COPY entrypoint.sh /entrypoint.sh
+
 ## 更新apt-mirror的路径和定时任务的配置文件
-COPY ./mirror.list /etc/apt/mirror.list
-COPY ./apt-mirror /etc/cron.d/apt-mirror
+COPY mirror.list /etc/apt/mirror.list
+RUN echo "* 23 * * *    root    /usr/bin/apt-mirror > /root/cron.log" >> /etc/crontab
 
 # 安装nginx, 为了用http协议发布自建仓库
-COPY ./apt-mirror.conf /etc/nginx/conf.d/apt-mirror.conf
-RUN nginx -t
-RUN service nginx start
+COPY apt-mirror.conf /etc/nginx/conf.d/apt-mirror.conf
 
-EXPOSE 80
-CMD nginx -g "daemon off;" #后台运行nginx命令，在运行容器时执行
+CMD [ "/entrypoint.sh" ]

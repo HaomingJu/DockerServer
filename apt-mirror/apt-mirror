@@ -1,3 +1,0 @@
-# 每天晚上11点进行更新
-
-0 23 * * *	apt-mirror	/usr/bin/apt-mirror > /var/spool/apt-mirror/var/cron.log

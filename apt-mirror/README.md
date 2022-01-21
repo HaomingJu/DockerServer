@@ -10,8 +10,8 @@ sudo docker build -t apt-mirror:latest ./
 ```
 sudo docker run -it -d \
     -p 8081:8081 \
-    -v /mnt/sdc:/root \
+    -v /media/haoming/data:/root \
     --name server-apt-mirror \
     --restart=always \
-    apt-mirror:latest bash
+    apt-mirror:latest
 ```

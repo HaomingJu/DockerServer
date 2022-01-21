@@ -1,3 +1,2 @@
-- [ ] Nginx-Docker for apt-mirror and other files. [Reference Link](https://registry.hub.docker.com/_/nginx)
-- [ ] Cron-Docker for code/cfg archive & apt-mirror update 
-- [ ] DockerCompose Learn
+- [x] Nginx-Docker for apt-mirror and other files. [Reference Link](https://registry.hub.docker.com/_/nginx)
+- [x] Cron-Docker for code/cfg archive & apt-mirror update 
