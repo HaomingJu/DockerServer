@@ -2,7 +2,10 @@ FROM     ubuntu:18.04
 
 # 更新软件源
 RUN apt-get update
-RUN apt-get install -y apt-mirror cron nginx-light
+RUN apt-get install -y perl cron nginx-light
+
+# 复制修复之后的apt-mirror
+COPY apt-mirror /usr/bin/apt-mirror
 
 # 复制入口脚本
 COPY entrypoint.sh /entrypoint.sh

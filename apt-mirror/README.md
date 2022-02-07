@@ -15,3 +15,6 @@ sudo docker run -it -d \
     --restart=always \
     apt-mirror:latest
 ```
+
+### 3. 时间表达式
+请参考: https://www.matools.com/crontab
