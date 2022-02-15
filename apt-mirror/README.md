@@ -11,6 +11,8 @@ sudo docker build -t apt-mirror:latest ./
 sudo docker run -it -d \
     -p 8081:8081 \
     -v /media/haoming/data:/root \
+    -v /etc/timezone:/etc/timezone:ro \
+    -v /etc/localtime:/etc/localtime:ro \
     --name server-apt-mirror \
     --restart=always \
     apt-mirror:latest
