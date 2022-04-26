@@ -1,6 +1,7 @@
 FROM     ubuntu:18.04
 
 # 更新软件源
+COPY sources.list /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y perl wget cron nginx-light
 
