@@ -9,18 +9,26 @@ repo_name=infra
 gpg --batch --passphrase "" \
     --quick-generate-key "aptly (key for aptly) <aptly@aptly.info>" rsa1024 default never
 
-# 清理数据库
-rm /root/.aptly/* -rf
 
-# 创建仓库
-aptly repo create -architectures="${repo_architectures}" -component="${repo_component}" -distribution="${repo_distribution}" ${repo_name}
+{
+    aptly repo create -architectures="${repo_architectures}" -component="${repo_component}" -distribution="${repo_distribution}" ${repo_name}
+} || {
+    echo "create repo failed."
+}
 
-# 发布仓库
-aptly publish repo -architectures="${repo_architectures}" ${repo_name}
+
+{ # try
+    aptly publish repo -architectures="${repo_architectures}" ${repo_name}
+} || { # catch
+    echo "publis repo failed"
+}
 
 # 参考: https://www.aptly.info/doc/api/
 # nginx托管
 aptly serve -listen=0.0.0.0:8081 &
+
+# 发布公钥
+gpg --output /root/.aptly/public/dists/trunk/pub.key --armor --export aptly
 
 # 启动API服务
 aptly api serve -listen=0.0.0.0:8082 &
