@@ -1,4 +1,4 @@
-# 使用说明
+[#](#) 使用说明
 
 ### 1. 镜像构建
 
@@ -18,3 +18,6 @@ sudo docker run -it -d \
     --restart=always \
     aptly:latest
 ```
+
+[] 仓库发布时的前缀 prefix
+[] REST API nginx处http认证
