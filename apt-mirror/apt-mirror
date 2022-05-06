@@ -448,6 +448,7 @@ foreach (@config_binaries)
             add_url_to_download( $url . $_ . "/binary-" . $arch . "/Packages.gz" );
             add_url_to_download( $url . $_ . "/binary-" . $arch . "/Packages.bz2" );
             add_url_to_download( $url . $_ . "/binary-" . $arch . "/Packages.xz" );
+            add_url_to_download( $url . $_ . "/cnf/Commands-" . $arch . ".xz" );
             add_url_to_download( $url . $_ . "/i18n/Index" );
         }
     }
