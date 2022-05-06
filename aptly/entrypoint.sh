@@ -58,7 +58,7 @@ gpg --batch --passphrase "" \
 aptly serve -listen=0.0.0.0:8081 &
 
 # 发布公钥
-gpg --output /root/.aptly/public/dists/pub.key --armor --export aptly
+#gpg --output /root/.aptly/public/${pub_prefix}/dists/pub.key --armor --export aptly
 
 # 启动API服务
 aptly api serve -listen=0.0.0.0:8082 &
