@@ -1,22 +1,16 @@
-FROM     ubuntu:18.04
+FROM alpine:3.15.4
 
-# 更新软件源
-COPY sources.list /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get install -y perl wget cron nginx-light
+WORKDIR /root
 
-# 复制修复之后的apt-mirror
-COPY apt-mirror /usr/bin/apt-mirror
+COPY repositories /etc/apk/repositories
+RUN apk update && apk add --no-cache --virtual .runtime-deps perl-module-runtime wget nginx
 
-# 复制入口脚本
+COPY apt-mirror /usr/local/bin/
 COPY entrypoint.sh /entrypoint.sh
-
-## 更新apt-mirror的路径和定时任务的配置文件(0 1 * * 7 每周日凌晨1点进行计划任务)
 COPY mirror.list /etc/apt/mirror.list
-RUN echo "0 1 * * 1,3,5    root    /usr/bin/apt-mirror > /root/cron.log" >> /etc/crontab
-RUN ln -s /etc/crontab /root/crontab
 
-# 安装nginx, 为了用http协议发布自建仓库 
-COPY apt-mirror.conf /etc/nginx/conf.d/apt-mirror.conf
+RUN echo "0 1 * * 1,3,5    root    /usr/bin/apt-mirror > /root/cron.log" >> /etc/crontabs/root
+
+COPY apt-mirror.conf /etc/nginx/http.d/apt-mirror.conf
 
 CMD [ "/entrypoint.sh" ]
