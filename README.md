@@ -1,2 +1,3 @@
-- [x] Nginx-Docker for apt-mirror and other files. [Reference Link](https://registry.hub.docker.com/_/nginx)
-- [x] Cron-Docker for code/cfg archive & apt-mirror update 
+- [ ] 将apt-mirror的基础镜像换做apline, 减小系统大小
+- [ ] 将aptly的基础镜像换做apline, 减小系统大小
+- [ ] 创建基于apline的trojan代理服务. ref: https://github.com/teddysun/across/blob/master/docker/trojan/Dockerfile
