@@ -14,8 +14,13 @@ sudo docker run -it -d -p 1080:1080 --restart=always --name trojan alpine:trojan
 
 使用时,可以设置环境变量
 ```
+# 设置代理
 export http_proxy=socks5://127.0.0.1:1080
 export https_proxy=socks5://127.0.0.1:1080
+
+# 恢复直连
+unset http_proxy
+unset https_proxy
 ```
 
 测试:
