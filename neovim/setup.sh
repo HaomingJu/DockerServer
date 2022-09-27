@@ -20,7 +20,8 @@ apt update && apt install -y \
         docker docker.io \
 	gcc g++ \
 	npm \
-	python3.8 python3-pip
+	python3.8 python3-pip \
+	language-pack-zh-hans
 
 # 3. 应用配置
 ## 3.1 neovim

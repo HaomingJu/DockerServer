@@ -1,0 +1,57 @@
+#set -o vi
+# oh my zsh conf
+plugins=(git colored-man-pages z cp extract history)
+export ZSH=$HOME/.oh-my-zsh
+export TERM=xterm-256color
+ZSH_THEME="robbyrussell"
+HIST_STAMPS="yyyy-mm-dd"
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt nonomatch
+source $ZSH/oh-my-zsh.sh
+
+# proxy conf
+#export http_proxy="http://10.11.2.174:7890"
+#export https_proxy="http://10.11.2.174:7890"
+
+# autosuggest conf
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=247,bold,underline"
+
+# alias conf
+alias CL='clang-format-3.8 -i'
+alias ll='ls -alh'
+alias l='ls -lh'
+alias g='git status'
+alias gb='git branch -avv'
+alias t='tig'
+alias c='clang-format-3.8 -i'
+alias vi='vim'
+alias v='vim'
+alias cp='cpv'
+alias rm='rm -rf'
+
+
+# fzf conf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+bindkey '^f' vi-forward-word
+bindkey '^b' vi-backward-word
+bindkey '^d' delete-word
+bindkey '^H' backward-kill-word
+export FZF_DEFAULT_COMMAND='ag -g '
+export FZF_DEFAULT_OPTS='--color dark,hl:33,hl+:37,fg+:235,bg+:136,fg+:254 --color info:254,prompt:37,spinner:108,pointer:235,marker:235'
+
+
+# distcc
+#export CCACHE_PREFIX="distcc"
+#export CC="ccache gcc" CXX="ccache g++"
+#export DISTCC_HOSTS="192.168.3.92/16 localhost/8"
+#export DISTCC_LOG="/var/log/trunk/distcc"
+
+
+# navi conf
+export PATH=${PATH}:${HOME}/.cargo/bin
+export NAVI_PATH=${HOME}/.config/Cheats
+eval "$(navi widget zsh)"
+
+export LC_ALL='zh_CN.utf8'
