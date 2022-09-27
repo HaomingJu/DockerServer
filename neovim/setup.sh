@@ -55,6 +55,7 @@ wget https://github.com/clangd/clangd/releases/download/15.0.1/clangd-linux-15.0
 pushd /root
     unzip clangd-linux-15.0.1.zip
     cp clangd_15.0.1/bin/clangd /usr/bin/clangd
+    cp clangd_15.0.1/lib/* /usr/lib/ -rf
     rm clangd* -rf
 popd
 
