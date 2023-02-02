@@ -14,13 +14,13 @@ add-apt-repository -y -n ppa:neovim-ppa/unstable
 add-apt-repository -y -n ppa:git-core/ppa
 
 apt update && apt install -y \
-	neovim git zsh curl \
+	neovim git zsh curl wget\
         tig tree silversearcher-ag htop ssh ctags unzip\
         aptitude cargo \
         docker docker.io \
 	gcc g++ \
 	npm \
-	python3.8 python3-pip \
+	python3.8* python3-pip \
 	language-pack-zh-hans
 
 # 3. 应用配置
@@ -45,18 +45,19 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$home/.
 
 ## 3.6 npm
 npm install n -g
-n stable
-n prune
+n i 16
 
 ## 3.7 python3.8
+python3.8 -m pip install pip --upgrade
 python3.8 -m pip install pynvim
+python3.8 -m pip install --user --upgrade pynvim
 
 ## 3.8 clangd
-wget https://github.com/clangd/clangd/releases/download/15.0.1/clangd-linux-15.0.1.zip -O /root/clangd-linux-15.0.1.zip
+wget https://github.com/clangd/clangd/releases/download/15.0.6/clangd-linux-15.0.6.zip -O /root/clangd-linux-15.0.6.zip
 pushd /root
-    unzip clangd-linux-15.0.1.zip
-    cp clangd_15.0.1/bin/clangd /usr/bin/clangd
-    cp clangd_15.0.1/lib/* /usr/lib/ -rf
+    unzip clangd-linux-15.0.6.zip
+    cp clangd_15.0.6/bin/clangd /usr/bin/clangd
+    cp clangd_15.0.6/lib/* /usr/lib/ -rf
     rm clangd* -rf
 popd
 
