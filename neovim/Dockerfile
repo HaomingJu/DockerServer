@@ -1,5 +1,9 @@
 FROM ubuntu:18.04
 
+ENV http_proxy http://10.11.2.254:7890
+
+ENV https_proxy http://10.11.2.254:7890
+
 COPY sources.list /etc/apt/sources.list
 
 COPY setup.sh /root/
