@@ -19,6 +19,7 @@ apt update && apt install -y \
         aptitude cargo \
         docker docker.io \
 	gcc g++ \
+        nodejs-dev node-gyp libssl1.0-dev \
 	npm \
 	python3.8* python3-pip \
 	language-pack-zh-hans

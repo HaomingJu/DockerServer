@@ -1,5 +1,4 @@
-# for ubuntu 18.04 LTS
-deb [arch=amd64] http://10.11.2.15:8081/ubuntu/ bionic main restricted universe multiverse
-deb [arch=amd64] http://10.11.2.15:8081/ubuntu/ bionic-updates main restricted universe multiverse
-deb [arch=amd64] http://10.11.2.15:8081/ubuntu/ bionic-backports main restricted universe multiverse
-deb [arch=amd64] http://10.11.2.15:8081/ubuntu/ bionic-security main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
