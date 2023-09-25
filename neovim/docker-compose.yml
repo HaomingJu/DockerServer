@@ -1,0 +1,17 @@
+services:
+  neovim:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: neovim_haoming
+
+    environment:
+      - MACHINE_NAME="neovim_haoming"
+    ports:
+      - "2222:22"   # for ssh login
+      - "2873:873"  # for rsync services
+    volumes:
+      - $HOME/code:/root/code
+      - ./conf/tigrc:/root/.tigrc
+      - ./conf/tigrc.theme:/root/.tigrc.theme
+      - ./conf/zshrc:/root/.zshrc

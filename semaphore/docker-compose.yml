@@ -1,0 +1,39 @@
+services:
+  mysql:
+    restart: always
+    image: mysql:8.0
+    hostname: mysql
+    volumes:
+      - semaphore-mysql:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_DATABASE: semaphore
+      MYSQL_USER: semaphore
+      MYSQL_PASSWORD: semaphore
+  semaphore:
+    ports:
+      - 3000:3000
+    image: semaphoreui/semaphore:v2.9.4
+    restart: always
+    environment:
+      HOME: ${HOME}
+      SEMAPHORE_DB_USER: semaphore
+      SEMAPHORE_DB_PASS: semaphore
+      SEMAPHORE_DB_HOST: mysql # for postgres, change to: postgres
+      SEMAPHORE_DB_PORT: 3306 # change to 5432 for postgres
+      SEMAPHORE_DB_DIALECT: mysql # for postgres, change to: postgres
+      SEMAPHORE_DB: semaphore
+      SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
+      SEMAPHORE_ADMIN_PASSWORD: admin
+      SEMAPHORE_ADMIN_NAME: admin
+      SEMAPHORE_ADMIN_EMAIL: admin@localhost
+      SEMAPHORE_ADMIN: admin
+      SEMAPHORE_ACCESS_KEY_ENCRYPTION: gs72mPntFATGJs9qK0pQ0rKtfidlexiMjYCH9gWKhTU=
+      SEMAPHORE_LDAP_ACTIVATED: 'no' # if you wish to use ldap, set to: 'yes' 
+    depends_on:
+      - mysql # for postgres, change to: postgres
+    volumes:
+      - ${HOME}/.ssh:/home/semaphore/.ssh
+
+volumes:
+  semaphore-mysql: # to use postgres, switch to: semaphore-postgres
