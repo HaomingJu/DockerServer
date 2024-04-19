@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-COPY sources.list /etc/apt/sources.list
+#COPY sources.list /etc/apt/sources.list
 
 RUN apt update && apt install -y gpg curl g++ gcc build-essential zsh wget tig tree silversearcher-ag htop ssh universal-ctags unzip cargo npm rsync git language-pack-zh-hans software-properties-common
 
